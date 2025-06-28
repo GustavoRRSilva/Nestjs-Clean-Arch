@@ -7,7 +7,7 @@ describe('EnvConfigService unit tests', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      imports: [EnvConfigModule.forRoot()], //add
+      imports: [EnvConfigModule], //add
       providers: [EnvConfigService],
     }).compile()
 

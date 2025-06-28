@@ -6,7 +6,14 @@ import { ConfigModule } from '@nestjs/config'
 import { UsersModule } from './users/infrastructure/users.module'
 
 @Module({
-  imports: [EnvConfigModule, ConfigModule, UsersModule],
+  imports: [
+    EnvConfigModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: '.env',
+    }),
+    UsersModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
