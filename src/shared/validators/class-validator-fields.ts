@@ -14,7 +14,6 @@ export abstract class ClassValidatorFields<PropsValidate>
     if (errors.length) {
       for (const error of errors) {
         const field = error.property
-
         this.errors[field] = Object.values(error)
       }
     } else {
