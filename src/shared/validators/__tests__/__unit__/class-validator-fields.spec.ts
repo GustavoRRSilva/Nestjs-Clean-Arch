@@ -28,4 +28,21 @@ describe('Class validator fields unit test', () => {
     expect(sut.validateData).toBeNull()
     expect(sut.errors).toStrictEqual({ field: ['test error'] })
   })
+
+  it('Should validate without errors', () => {
+    const spyValidateSync = jest.spyOn(libClassValidator, 'validateSync')
+
+    //Aqui ele basicamente faz o retorno de quando chamarmos a função validateSync
+
+    spyValidateSync.mockReturnValue([])
+
+    const sut = new StubValidatorFields()
+
+    //Lembrando que quando não há erro, o validate retorna true e o validateDate retorna exatamente os campos que foram passados
+
+    expect(sut.validate({ field: 'value' })).toBeTruthy()
+    expect(spyValidateSync).toHaveBeenCalled()
+    expect(sut.validateData).toStrictEqual({ field: 'value' })
+    expect(sut.errors).toBeNull()
+  })
 })
