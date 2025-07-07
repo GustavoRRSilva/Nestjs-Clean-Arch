@@ -42,4 +42,16 @@ describe('UserEntity unit tests', () => {
     expect(sut.createdAt).toBeDefined()
     expect(sut.createdAt).toBeInstanceOf(Date)
   })
+
+  it('Setter of name field', () => {
+    sut.update('Gustavo')
+
+    expect(sut.props.name).toBe('Gustavo')
+  })
+
+  it('Setter of password field', () => {
+    sut.updatePassword('Gustavinho123')
+
+    expect(sut.props.password).toBe('Gustavinho123')
+  })
 })
