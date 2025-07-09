@@ -6,7 +6,10 @@ import {
 } from '../../user.validator'
 import { UserDataBuilder } from '@/users/domain/testing/helpers/user-data-builder'
 
+//Validação
 let sut: UserValidator
+
+//Dados que o User vai receber
 let props: UserProps
 describe('Class validator fields integration test', () => {
   beforeEach(() => {
